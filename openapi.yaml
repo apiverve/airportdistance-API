@@ -1,0 +1,93 @@
+openapi: 3.0.4
+info:
+  title: Airport Distance
+  description: Airport Distance is a simple tool for getting the distance between two airports. It returns the distance between the two airports.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.9
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+- url: https://api.apiverve.com/
+paths:
+  /v1/airportdistance:
+    get:
+      summary: Get Airport Distance from IATA
+      description: Airport Distance is a simple tool for getting the distance between two airports. It returns the distance between the two airports.
+      operationId: airportdistance
+      parameters:
+      - name: iata1
+        in: query
+        schema:
+          type: string
+        required: true
+        description: The IATA code of the first airport (e.g. JFK)
+        example: JFK
+      - name: iata2
+        in: query
+        schema:
+          type: string
+        required: true
+        description: The IATA code of the second airport (e.g. LAX)
+        example: LAX
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: string
+                    description: data
+              example:
+                status: ok
+                error: 
+                data:
+                  distanceMiles: 2470.23
+                  distanceKm: 3974.2
+                  airport1:
+                    name: John F Kennedy International Airport
+                    iata: JFK
+                    icao: KJFK
+                    city: New York
+                    state: New-York
+                    country: US
+                    elevation: 13
+                    latitude: 40.63980103
+                    longitude: -73.77890015
+                  airport2:
+                    name: Los Angeles International Airport
+                    iata: LAX
+                    icao: KLAX
+                    city: Los Angeles
+                    state: California
+                    country: US
+                    elevation: 125
+                    latitude: 33.94250107
+                    longitude: -118.4079971
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occured, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+- api_key: []
