@@ -1,39 +1,43 @@
 openapi: 3.0.4
 info:
   title: Airport Distance
-  description: Airport Distance is a simple tool for getting the distance between two airports. It returns the distance between the two airports.
+  description: >-
+    Airport Distance is a simple tool for getting the distance between two
+    airports. It returns the distance between the two airports.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/airportdistance:
     get:
       summary: Get Airport Distance from IATA
-      description: Airport Distance is a simple tool for getting the distance between two airports. It returns the distance between the two airports.
+      description: >-
+        Airport Distance is a simple tool for getting the distance between two
+        airports. It returns the distance between the two airports.
       operationId: airportdistance
       parameters:
-      - name: iata1
-        in: query
-        schema:
-          type: string
-        required: true
-        description: The IATA code of the first airport (e.g. JFK)
-        example: JFK
-      - name: iata2
-        in: query
-        schema:
-          type: string
-        required: true
-        description: The IATA code of the second airport (e.g. LAX)
-        example: LAX
+        - name: iata1
+          in: query
+          schema:
+            type: string
+          required: true
+          description: The IATA code of the first airport (e.g. JFK)
+          example: JFK
+        - name: iata2
+          in: query
+          schema:
+            type: string
+          required: true
+          description: The IATA code of the second airport (e.g. LAX)
+          example: LAX
       responses:
         '200':
           description: Successful Response
@@ -49,11 +53,11 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
                   distanceMiles: 2470.23
                   distanceKm: 3974.2
@@ -82,7 +86,7 @@ paths:
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
 components:
   securitySchemes:
     api_key:
@@ -90,4 +94,4 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
