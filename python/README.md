@@ -44,7 +44,10 @@ from apiverve_airportdistance.apiClient import AirportdistanceAPIClient
 # Initialize the client with your APIVerve API key
 api = AirportdistanceAPIClient("[YOUR_API_KEY]")
 
-query = { "iata1": "JFK", "iata2": "LAX" }
+query = {
+    "iata1": "JFK",
+    "iata2": "LAX"
+}
 
 try:
     # Make the API call
@@ -82,7 +85,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "iata1": "JFK", "iata2": "LAX" }
+query = {
+    "iata1": "JFK",
+    "iata2": "LAX"
+}
 ```
 
 ###### Simple Request
@@ -143,7 +149,10 @@ from apiverve_airportdistance.apiClient import AirportdistanceAPIClient, Airport
 
 api = AirportdistanceAPIClient("[YOUR_API_KEY]")
 
-query = { "iata1": "JFK", "iata2": "LAX" }
+query = {
+    "iata1": "JFK",
+    "iata2": "LAX"
+}
 
 try:
     result = api.execute(query)
@@ -164,7 +173,10 @@ from apiverve_airportdistance.apiClient import AirportdistanceAPIClient, Airport
 
 api = AirportdistanceAPIClient("[YOUR_API_KEY]")
 
-query = { "iata1": "JFK", "iata2": "LAX" }
+query = {
+    "iata1": "JFK",
+    "iata2": "LAX"
+}
 
 try:
     result = api.execute(query)
@@ -198,7 +210,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_airportdistance.apiClient import AirportdistanceAPIClient, AirportdistanceAPIClientError
 
-query = { "iata1": "JFK", "iata2": "LAX" }
+query = {
+    "iata1": "JFK",
+    "iata2": "LAX"
+}
 
 # Using context manager ensures proper cleanup
 with AirportdistanceAPIClient("[YOUR_API_KEY]") as api:
@@ -224,7 +239,10 @@ from apiverve_airportdistance.apiClient import AirportdistanceAPIClient
 # Enable debug mode
 api = AirportdistanceAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "iata1": "JFK", "iata2": "LAX" }
+query = {
+    "iata1": "JFK",
+    "iata2": "LAX"
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -239,8 +257,12 @@ from apiverve_airportdistance.apiClient import AirportdistanceAPIClient
 
 api = AirportdistanceAPIClient("[YOUR_API_KEY]")
 
+query = {
+    "iata1": "JFK",
+    "iata2": "LAX"
+}
+
 try:
-    query = { "iata1": "JFK", "iata2": "LAX" }
     result = api.execute(query)
     print(result)
 finally:
